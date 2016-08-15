@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
-import com.pddstudio.orly.book.generator.Book;
 import com.pddstudio.orly.book.generator.enums.CoverColor;
 import com.pddstudio.orlyandroid.enums.Type;
 import com.pddstudio.orlyandroid.fragments.ColorPickerFragment;
@@ -16,7 +16,6 @@ import com.pddstudio.orlyandroid.fragments.SingleTextFragment;
 import com.pddstudio.orlyandroid.utils.BuilderUtil;
 import com.pddstudio.orlyandroid.utils.GenerationUtils;
 
-import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
@@ -33,6 +32,8 @@ import me.drozdzynski.library.steppers.SteppersView;
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity implements OnFinishAction, OnCancelAction, ColorChooserDialog.ColorCallback, ColorPickerFragment.Callback {
 
+	private static final int RESULT_ACTIVITY_CODE = 42;
+
 	@Bean
 	GenerationUtils generationUtils;
 
@@ -46,21 +47,6 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 	SteppersView steppersView;
 
 	SteppersView.Config steppersViewConfig;
-
-	Book book;
-
-	@AfterInject
-	void testResponse() {
-		/*book = BookGenerator.createBook()
-							.withAuthor("PDDStudio")
-							.withTopText("Another Awesome Android App")
-							.withTitle("ORly Book Generator")
-							.withGuideText("Coming soon for Android")
-							.withCoverImage(CoverImage.IMAGE_17)
-							.withCoverColor(CoverColor.DARK_MAGENTA)
-							.generate();
-		generationUtils.requestBook(book);*/
-	}
 
 	@AfterViews
 	void prepareLayout() {
@@ -116,6 +102,11 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 		return items;
 	}
 
+	private void restartActivity() {
+		MainActivity_.intent(this).start();
+		this.finish();
+	}
+
 	@Override
 	public void onFinish() {
 		String url = builderUtil.build().getGeneratedUrl();
@@ -125,7 +116,12 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 
 	@Override
 	public void onCancel() {
-
+		new MaterialDialog.Builder(this).title(R.string.dialog_cancel_title)
+										.content(R.string.dialog_cancel_content)
+										.positiveText(android.R.string.yes)
+										.negativeText(android.R.string.no)
+										.onPositive((dialog, which) -> restartActivity())
+										.show();
 	}
 
 	@Override
@@ -137,7 +133,10 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 
 	@Override
 	public void onColorDialogClicked(int[] colors) {
-		new ColorChooserDialog.Builder(this, R.string.dialog_pick_color_title).customColors(colors, null).show();
+		new ColorChooserDialog.Builder(this, R.string.dialog_pick_color_title).customColors(colors, null)
+																			  .allowUserColorInput(false)
+																			  .allowUserColorInputAlpha(false)
+																			  .show();
 	}
 
 }

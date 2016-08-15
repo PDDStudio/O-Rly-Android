@@ -25,4 +25,6 @@
 	<!-- Dialog Strings -->
 	<string name="dialog_pick_color_title">Pick A Cover Color</string>
 	<string name="dialog_cover_picker_title">Pick A Cover Image</string>
+	<string name="dialog_cancel_title">Cancel Book Cover Generation?</string>
+	<string name="dialog_cancel_content">This will reset all data.\nAre you sure you want to proceed?</string>
 </resources>
