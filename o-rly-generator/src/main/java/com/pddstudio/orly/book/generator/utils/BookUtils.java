@@ -60,6 +60,7 @@ public class BookUtils {
 								 .replaceAll("\\}", "%7D");
 
 		Log.d("BookUtils", "Encoded text: " + encodedText);
+		//TODO: This temporary workaround needs to be fixed.
 		return encodedText.substring(3, encodedText.length() - 3);
 	}
 
