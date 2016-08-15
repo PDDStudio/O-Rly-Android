@@ -47,4 +47,8 @@ public enum CoverColor {
 		return J8Arrays.stream(coverColors).filter(coverColor -> coverColor.colorCode == code).findAny().orElse(DEFAULT);
 	}
 
+	public static CoverColor getForHex(String colorHex) {
+		return J8Arrays.stream(CoverColor.values()).filter(coverColor -> coverColor.colorHex.equals(colorHex)).findAny().orElse(DEFAULT);
+	}
+
 }

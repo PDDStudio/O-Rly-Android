@@ -1,3 +1,28 @@
 <resources>
 	<string name="app_name">O-Rly-Android</string>
+	<string name="result_activity_title">Generated Book Cover</string>
+	<!-- Stepper Strings -->
+	<string name="step_title_title">Title</string>
+	<string name="step_title_summary">Specify the Title of the Book</string>
+	<string name="step_top_title_title">Top Text</string>
+	<string name="step_top_title_summary">Specify the top Text of the Book</string>
+	<string name="step_guide_text_title">Sub Title</string>
+	<string name="step_guide_text_summary">Specify the sub Title of the Book (optional)</string>
+	<string name="step_author_title">Author</string>
+	<string name="step_author_summary">Specify the Author of the Book</string>
+	<string name="step_color_title">Color</string>
+	<string name="step_color_summary">Specify the Color of the Book</string>
+	<string name="step_image_title">Image</string>
+	<string name="step_image_summary">Specify the Image of the Book</string>
+	<!-- Fragment Strings -->
+	<string name="fragment_title_text">Book Title:</string>
+	<string name="fragment_sub_title_text">Book Sub Title:</string>
+	<string name="fragment_top_text">Book Top Text:</string>
+	<string name="fragment_author_text">Book Author:</string>
+	<string name="color_picker_title_text">Select Cover Color</string>
+	<string name="cover_image_picker_title">Select Cover Image</string>
+	<string name="button_open">Open</string>
+	<!-- Dialog Strings -->
+	<string name="dialog_pick_color_title">Pick A Cover Color</string>
+	<string name="dialog_cover_picker_title">Pick A Cover Image</string>
 </resources>

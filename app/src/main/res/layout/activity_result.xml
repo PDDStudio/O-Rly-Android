@@ -4,7 +4,7 @@
 												 xmlns:tools="http://schemas.android.com/tools"
 												 android:layout_width="match_parent"
 												 android:layout_height="match_parent"
-												 tools:context="com.pddstudio.orlyandroid.MainActivity">
+												 tools:context="com.pddstudio.orlyandroid.ResultActivity">
 
 	<android.support.design.widget.AppBarLayout
 		android:layout_width="match_parent"
@@ -19,8 +19,8 @@
 
 	</android.support.design.widget.AppBarLayout>
 
-	<me.drozdzynski.library.steppers.SteppersView
-		android:id="@+id/steppers_view"
+	<ImageView
+		android:id="@+id/image"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
