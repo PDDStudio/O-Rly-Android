@@ -58,6 +58,7 @@ dependencies {
     compile 'com.afollestad.material-dialogs:commons:0.9.0.1'
 
     compile 'com.github.drozdzynski:Steppers:5a7b08a7fc'
+    //compile 'com.github.PDDStudio:Steppers:0.0.2'
 
     compile project(':o-rly-generator')
 }

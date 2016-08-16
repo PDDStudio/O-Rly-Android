@@ -1,6 +1,7 @@
 <resources>
 	<string name="app_name">O-Rly-Android</string>
 	<string name="result_activity_title">Generated Book Cover</string>
+	<string name="share_image_text">Share via…</string>
 	<!-- Stepper Strings -->
 	<string name="step_title_title">Title</string>
 	<string name="step_title_summary">Specify the Title of the Book</string>
@@ -27,4 +28,26 @@
 	<string name="dialog_cover_picker_title">Pick A Cover Image</string>
 	<string name="dialog_cancel_title">Cancel Book Cover Generation?</string>
 	<string name="dialog_cancel_content">This will reset all data.\nAre you sure you want to proceed?</string>
+	<string name="dialog_no_connection_title">No Internet Connection Available</string>
+	<string name="dialog_no_connection_content">Please make sure you have an active internet connection in order to proceed.</string>
+	<string name="dialog_generate_image_title">Generating Book Cover</string>
+	<string name="dialog_generate_image_content">It should be ready soon! Hang tight…</string>
+	<!-- Menu Strings -->
+	<string name="menu_main_reset_content">Reset Content</string>
+	<string name="menu_main_github">View on GitHub</string>
+	<string name="menu_main_about">Help &amp; About</string>
+	<string name="menu_main_settings">Settings</string>
+	<!-- Result Menu Strings -->
+	<string name="menu_result_save">Save</string>
+	<string name="menu_result_share">Share</string>
+	<string name="menu_result_delete">Delete</string>
+	<!-- Overridden Library Strings -->
+	<string name="step_continue">Continue</string>
+	<string name="step_finish">Generate</string>
+	<string name="step_cancel">Reset</string>
+	<!-- Snackbar Strings -->
+	<string name="snack_bar_save_success">Image successfully saved to:\n%s</string>
+	<string name="snack_bar_save_fail">Unable to save Image. If this issue persists please file an issue on GitHub.</string>
+	<string name="snack_bar_permission_required">Storage Permission is required to save images!</string>
+
 </resources>

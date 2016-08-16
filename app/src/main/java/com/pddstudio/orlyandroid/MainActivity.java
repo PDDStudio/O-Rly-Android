@@ -1,26 +1,40 @@
 package com.pddstudio.orlyandroid;
 
+import android.content.Context;
+import android.graphics.Rect;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.pddstudio.orly.book.generator.enums.CoverColor;
 import com.pddstudio.orlyandroid.enums.Type;
+import com.pddstudio.orlyandroid.enums.UrlType;
 import com.pddstudio.orlyandroid.fragments.ColorPickerFragment;
 import com.pddstudio.orlyandroid.fragments.CoverImagePickerFragment;
 import com.pddstudio.orlyandroid.fragments.SingleTextFragment;
 import com.pddstudio.orlyandroid.utils.BuilderUtil;
 import com.pddstudio.orlyandroid.utils.GenerationUtils;
+import com.pddstudio.orlyandroid.utils.NetworkUtils;
+import com.pddstudio.orlyandroid.utils.StorageManager;
 
+import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,15 +44,20 @@ import me.drozdzynski.library.steppers.SteppersItem;
 import me.drozdzynski.library.steppers.SteppersView;
 
 @EActivity(R.layout.activity_main)
+@OptionsMenu(R.menu.menu_main)
 public class MainActivity extends AppCompatActivity implements OnFinishAction, OnCancelAction, ColorChooserDialog.ColorCallback, ColorPickerFragment.Callback {
-
-	private static final int RESULT_ACTIVITY_CODE = 42;
 
 	@Bean
 	GenerationUtils generationUtils;
 
 	@Bean
 	BuilderUtil builderUtil;
+
+	@Bean
+	StorageManager storageManager;
+
+	@Bean
+	NetworkUtils networkUtils;
 
 	@ViewById(R.id.toolbar)
 	Toolbar toolbar;
@@ -47,6 +66,12 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 	SteppersView steppersView;
 
 	SteppersView.Config steppersViewConfig;
+	MaterialDialog      loadingDialog;
+
+	@AfterInject
+	void prepareApplication() {
+		storageManager.cleanCacheDir();
+	}
 
 	@AfterViews
 	void prepareLayout() {
@@ -107,14 +132,53 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 		this.finish();
 	}
 
-	@Override
-	public void onFinish() {
-		String url = builderUtil.build().getGeneratedUrl();
-		Log.d("MainActivity", "Generated URL: " + url);
-		ResultActivity.open(this, url);
+	private void showNotConnectedDialog() {
+		new MaterialDialog.Builder(this).title(R.string.dialog_no_connection_title)
+										.content(R.string.dialog_no_connection_content)
+										.positiveText(android.R.string.ok)
+										.show();
 	}
 
 	@Override
+	public void onFinish() {
+		if (networkUtils.isConnectionAvailable()) {
+			loadingDialog = new MaterialDialog.Builder(this).title(R.string.dialog_generate_image_title)
+															.content(R.string.dialog_generate_image_content)
+															.progress(true, -1)
+															.cancelable(false)
+															.canceledOnTouchOutside(false)
+															.autoDismiss(false)
+															.show();
+			downloadImage();
+		} else {
+			showNotConnectedDialog();
+		}
+
+	}
+
+	@UiThread
+	void onImageDownloaded(File downloadedFile) {
+
+		if (loadingDialog != null && loadingDialog.isShowing()) {
+			loadingDialog.dismiss();
+		}
+
+		if (downloadedFile != null && downloadedFile.exists()) {
+			ResultActivity.open(this, downloadedFile);
+			builderUtil.clean();
+		} else {
+			//TODO: handle case if saving failed!
+		}
+	}
+
+	@Background
+	void downloadImage() {
+		File downloadedFile = storageManager.saveBook(builderUtil.build());
+		onImageDownloaded(downloadedFile);
+	}
+
+	@Override
+	@OptionsItem(R.id.menu_reset_content)
 	public void onCancel() {
 		new MaterialDialog.Builder(this).title(R.string.dialog_cancel_title)
 										.content(R.string.dialog_cancel_content)
@@ -124,10 +188,24 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 										.show();
 	}
 
+	@OptionsItem(R.id.menu_github)
+	void openGithubPage() {
+		networkUtils.openUrl(this, UrlType.GITHUB);
+	}
+
+	@OptionsItem(R.id.menu_about)
+	void openAboutPage() {
+		//TODO: Add about page
+	}
+
+	@OptionsItem(R.id.menu_settings)
+	void openSettingsPage() {
+		//TODO: Add settings
+	}
+
 	@Override
 	public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
 		String strColor = String.format("#%06X", 0xFFFFFF & selectedColor);
-		Log.d("MainActivity", "Selected Color: " + strColor);
 		builderUtil.setCoverColor(CoverColor.getForHex(strColor));
 	}
 
@@ -137,6 +215,23 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 																			  .allowUserColorInput(false)
 																			  .allowUserColorInputAlpha(false)
 																			  .show();
+	}
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent event) {
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			View view = getCurrentFocus();
+			if (view instanceof EditText) {
+				Rect outRect = new Rect();
+				view.getGlobalVisibleRect(outRect);
+				if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
+					view.clearFocus();
+					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+				}
+			}
+		}
+		return super.dispatchTouchEvent(event);
 	}
 
 }

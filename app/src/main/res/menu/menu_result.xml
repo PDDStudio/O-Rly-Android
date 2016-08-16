@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<item
+		android:id="@+id/menu_save_image"
+		android:title="@string/menu_result_save"
+		app:showAsAction="never"/>
+
+	<item
+		android:id="@+id/menu_share_image"
+		android:title="@string/menu_result_share"
+		app:showAsAction="never"/>
+
+	<item
+		android:id="@+id/menu_delete_image"
+		android:title="@string/menu_result_delete"
+		app:showAsAction="never"/>
+
+</menu>
