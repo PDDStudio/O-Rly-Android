@@ -1,6 +1,7 @@
 package com.pddstudio.orlyandroid.fragments;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -43,7 +44,9 @@ public class CoverImagePickerFragment extends Fragment implements CoverImageAdap
 
 	@Click(R.id.open_button)
 	void openDialog() {
-		materialDialog = new MaterialDialog.Builder(getContext()).title(R.string.dialog_cover_picker_title).adapter(coverImageAdapter, null).show();
+		materialDialog = new MaterialDialog.Builder(getContext()).title(R.string.dialog_cover_picker_title)
+																 .adapter(coverImageAdapter, new GridLayoutManager(getContext(), 2))
+																 .show();
 	}
 
 	@Override
