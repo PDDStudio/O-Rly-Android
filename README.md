@@ -33,6 +33,12 @@ There are a few known edge cases that do not generate.
 Some characters and long words won't work, etc. If you want to report an issue, feel free to do this in the [Issue Section](https://github.com/PDDStudio/O-Rly-Android/issues)
 
 ##Google Play
+
+###Note:
+The App is currently *not* listed in the PlayStore, this will change in the next few days after collecting some Feedback.
+
+In meanwhile please download the APK from the [Release Section](https://github.com/PDDStudio/O-Rly-Android/releases)
+
 <br/>
 <a href='https://play.google.com/store/apps/details?id=com.pddstudio.orlyandroid'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200px"/></a>
 
