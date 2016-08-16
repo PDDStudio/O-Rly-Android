@@ -12,12 +12,6 @@
 
 O-Rly-Android is a simple app which allows you to create O RLY parody covers on your Android phone.
 
-*Feel free to contact or follow me:*
-
-- [Google+](https://plus.google.com/+PatrickJung42)
-- [GitHub](https://github.com/PDDStudio)
-- [E-Mail](mailto:patrick.pddstudio@gmail.com)
-
 
 ##Disclaimer:
 
@@ -26,6 +20,12 @@ I only created the Android-App for the [O RLY Cover Generator](https://dev.to/rl
 
 The site is hosted by [@ThePracticalDev](https://twitter.com/ThePracticalDev) and the original tool was created by [@AModelEngineer](https://twitter.com/AModelEngineer).
 
+##Functions:
+
+- Create O Rly Book Covers with the same functions as on the Website
+- Share created Books immediately without saving them on your device
+- Save created Books to your device's storage to view and/or use them again
+- Android 6.0 Ready
 
 ##Notice 
 There are a few known edge cases that do not generate. 
@@ -36,6 +36,13 @@ Some characters and long words won't work, etc. If you want to report an issue, 
 <br/>
 <a href='https://play.google.com/store/apps/details?id=com.pddstudio.orlyandroid'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="200px"/></a>
 
+##Contact
+
+Feel free to contact or follow me.
+
+- [Google+ Profile](https://plus.google.com/+PatrickJung42)
+- [GitHub Account](https://github.com/PDDStudio)
+- [Send me an E-Mail](mailto:patrick.pddstudio@gmail.com)
 
 ##License
     Copyright 2016 Patrick J
