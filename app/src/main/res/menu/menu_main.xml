@@ -22,6 +22,7 @@
 
 	<item
 		android:id="@+id/menu_settings"
+		android:enabled="false"
 		android:icon="@drawable/ic_settings_24dp"
 		android:title="@string/menu_main_settings"
 		app:showAsAction="never"/>

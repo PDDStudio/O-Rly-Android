@@ -13,15 +13,21 @@
 		android:label="@string/app_name"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
-		<activity android:name=".MainActivity_">
+		<activity
+			android:name=".MainActivity_"
+			android:screenOrientation="portrait">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name=".ResultActivity_"/>
-
+		<activity
+			android:name=".ResultActivity_"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name=".AboutActivity_"
+			android:screenOrientation="portrait"/>
 		<!-- File Provider to share files from cache -->
 		<provider
 			android:name="android.support.v4.content.FileProvider"

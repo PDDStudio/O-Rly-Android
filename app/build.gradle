@@ -60,5 +60,9 @@ dependencies {
     compile 'com.github.drozdzynski:Steppers:5a7b08a7fc'
     //compile 'com.github.PDDStudio:Steppers:0.0.2'
 
+    compile('com.mikepenz:aboutlibraries:5.7.2@aar') {
+        transitive = true
+    }
+
     compile project(':o-rly-generator')
 }

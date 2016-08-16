@@ -1,3 +1,13 @@
 <resources>
 	<string name="app_name">O-Rly-Generator</string>
+	<string name="define_ORlyGenerator"></string>
+	<string name="library_ORlyGenerator_author">Patrick J</string>
+	<string name="library_ORlyGenerator_authorWebsite">http://pddstudio.com/</string>
+	<string name="library_ORlyGenerator_libraryName">O-Rly Cover Generator</string>
+	<string name="library_ORlyGenerator_libraryDescription">A library to generate O-Rly Book Covers on Android</string>
+	<string name="library_ORlyGenerator_libraryVersion">1.0.0</string>
+	<string name="library_ORlyGenerator_libraryWebsite">https://github.com/PDDStudio/O-Rly-Android</string>
+	<string name="library_ORlyGenerator_licenseId">apache_2_0</string>
+	<string name="library_ORlyGenerator_isOpenSource">true</string>
+	<string name="library_ORlyGenerator_repositoryLink">https://github.com/PDDStudio/O-Rly-Android</string>
 </resources>

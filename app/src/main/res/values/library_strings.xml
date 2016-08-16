@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Android Annotations -->
+	<string name="define_AndroidAnnotations"></string>
+	<string name="library_AndroidAnnotations_author">excilys</string>
+	<string name="library_AndroidAnnotations_authorWebsite">http://androidannotations.org/</string>
+	<string name="library_AndroidAnnotations_libraryName">AndroidAnnotations</string>
+	<string name="library_AndroidAnnotations_libraryDescription">AndroidAnnotations is an Open Source framework that speeds up Android development. It takes
+		care of the plumbing, and lets you concentrate on what\'s really important. By simplifying your code, it facilitates its maintenance.</string>
+	<string name="library_AndroidAnnotations_libraryVersion">4.0.0</string>
+	<string name="library_AndroidAnnotations_libraryWebsite">https://github.com/excilys/androidannotations/</string>
+	<string name="library_AndroidAnnotations_licenseId">apache_2_0</string>
+	<string name="library_AndroidAnnotations_isOpenSource">true</string>
+	<string name="library_AndroidAnnotations_repositoryLink">https://github.com/excilys/androidannotations/</string>
+	<!-- StreamSupport Library -->
+	<string name="define_StreamSupport"></string>
+	<string name="library_StreamSupport_author">streamsupport</string>
+	<string name="library_StreamSupport_authorWebsite">https://github.com/streamsupport/streamsupport</string>
+	<string name="library_StreamSupport_libraryName">StreamSupport</string>
+	<string name="library_StreamSupport_libraryDescription">streamsupport is a backport of the Java 8 java.util.function (functional interfaces) and
+		java.util.stream (streams) API for users of Java 6 or 7 supplemented with selected additions from java.util.concurrent which didn\'t exist back in Java 6.</string>
+	<string name="library_StreamSupport_libraryVersion">1.5.1</string>
+	<string name="library_StreamSupport_libraryWebsite">https://github.com/streamsupport/streamsupport</string>
+	<string name="library_StreamSupport_licenseId">gpl_2</string>
+	<string name="library_StreamSupport_isOpenSource">true</string>
+	<string name="library_StreamSupport_repositoryLink">https://github.com/streamsupport/streamsupport</string>
+	<!-- Retrolambda -->
+	<string name="define_RetroLambda"></string>
+	<string name="library_RetroLambda_author">orfjackal</string>
+	<string name="library_RetroLambda_authorWebsite">https://github.com/orfjackal/retrolambda</string>
+	<string name="library_RetroLambda_libraryName">Retrolambda</string>
+	<string name="library_RetroLambda_libraryDescription">Just as there was Retroweaver et al. for running Java 5 code with generics on Java 1.4, Retrolambda lets you run Java 8 code with lambda expressions, method references and try-with-resources statements on Java 7, 6 or 5. It does this by transforming your Java 8 compiled bytecode so that it can run on an older Java runtime. After the transformation they are just a bunch of normal .class files, without any additional runtime dependencies.</string>
+	<string name="library_RetroLambda_libraryVersion">3.2.5</string>
+	<string name="library_RetroLambda_libraryWebsite">https://github.com/orfjackal/retrolambda</string>
+	<string name="library_RetroLambda_licenseId">apache_2_0</string>
+	<string name="library_RetroLambda_isOpenSource">true</string>
+	<string name="library_RetroLambda_repositoryLink">https://github.com/orfjackal/retrolambda</string>
+	<!-- Steppers Library -->
+	<string name="define_Steppers"></string>
+	<string name="library_Steppers_author">drozdzynski</string>
+	<string name="library_Steppers_authorWebsite">https://github.com/drozdzynski/Steppers</string>
+	<string name="library_Steppers_libraryName">Steppers</string>
+	<string name="library_Steppers_libraryDescription">A Material Design inspired Stepper Library.</string>
+	<string name="library_Steppers_libraryVersion">0.3.3</string>
+	<string name="library_Steppers_libraryWebsite">https://github.com/drozdzynski/Steppers</string>
+	<string name="library_Steppers_licenseId">apache_2_0</string>
+	<string name="library_Steppers_isOpenSource">true</string>
+	<string name="library_Steppers_repositoryLink">https://github.com/drozdzynski/Steppers</string>
+</resources>

@@ -1,6 +1,7 @@
 <resources>
 	<string name="app_name">O-Rly-Android</string>
 	<string name="result_activity_title">Generated Book Cover</string>
+	<string name="about_activity_title">About</string>
 	<string name="share_image_text">Share via…</string>
 	<!-- Stepper Strings -->
 	<string name="step_title_title">Title</string>
@@ -35,7 +36,7 @@
 	<!-- Menu Strings -->
 	<string name="menu_main_reset_content">Reset Content</string>
 	<string name="menu_main_github">View on GitHub</string>
-	<string name="menu_main_about">Help &amp; About</string>
+	<string name="menu_main_about">About</string>
 	<string name="menu_main_settings">Settings</string>
 	<!-- Result Menu Strings -->
 	<string name="menu_result_save">Save</string>
@@ -49,5 +50,22 @@
 	<string name="snack_bar_save_success">Image successfully saved to:\n%s</string>
 	<string name="snack_bar_save_fail">Unable to save Image. If this issue persists please file an issue on GitHub.</string>
 	<string name="snack_bar_permission_required">Storage Permission is required to save images!</string>
-
+	<!-- AboutLibrary Strings -->
+	<string name="aboutLibraries_description_showIcon">true</string>
+	<string name="aboutLibraries_description_showVersion">false</string>
+	<string name="aboutLibraries_description_text">
+		<![CDATA[
+		<b>O-Rly Book Cover Generator</b><br />
+		<i>Now on Android by <a href=\"https://github.com/PDDStudio\">PDDStudio</a></i><br /><br />
+        <i>Feel free to contact or follow me:</i><br />
+        - <a href=\"https://plus.google.com/+PatrickJung42\">Google+</a><br />
+        - <a href=\"https://github.com/PDDStudio\">GitHub</a><br />
+        - <a href=\"mailto:patrick.pddstudio@gmail.com\">E-Mail</a><br />
+        <br />
+        <b>Disclaimer:</b><br />
+        I only created the Android-App for the <a href=\"https://dev.to/rly\">O RLY Cover Generator</a> and do not hold any special permission, except the agreement to bring this awesome site to Android.<br />
+        The site is hosted by <a href=\"https://twitter.com/ThePracticalDev\">@ThePracticalDev</a> and the original tool was created by <a href=\"https://twitter.com/AModelEngineer\">@AModelEngineer</a>.<br /><br />
+        <b><i>Insult your co-workers with snarky O RLY parody book covers!</i></b><br /><br />
+        <i>PS. There are a few known edge cases that do not generate. Some characters and long words won\'t work, etc. If you want to report an issue, feel free to do this in the <a href=\"https://github.com/PDDStudio/O-Rly-Android\">GitHub Repository</a>.</i>]]>
+	</string>
 </resources>

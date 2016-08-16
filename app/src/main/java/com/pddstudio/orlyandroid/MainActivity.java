@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements OnFinishAction, O
 
 	@OptionsItem(R.id.menu_about)
 	void openAboutPage() {
-		//TODO: Add about page
+		AboutActivity.open(this);
 	}
 
 	@OptionsItem(R.id.menu_settings)
